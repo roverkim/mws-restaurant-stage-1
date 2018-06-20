@@ -143,24 +143,21 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = restaurant.name;
+  image.alt = restaurant.name + 'restaurant';
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
-  name.setAttribute('tabindex', '0');
   name.setAttribute('aria-label', `restaurant name: ${restaurant.name}`)
   li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
   neighborhood.setAttribute('aria-label', `neighborhood: ${restaurant.neighborhood}`)
-  neighborhood.setAttribute('tabindex', '0');
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
-  address.setAttribute('tabindex', '0');
   address.setAttribute('aria-label', `restaurant address: ${restaurant.address}`)
   li.append(address);
   
@@ -169,7 +166,7 @@ createRestaurantHTML = (restaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   more.setAttribute('role', 'button');
   more.setAttribute('tabindex', '0');
-  more.setAttribute('aria-label', `Click to navigate to ${restaurant.name} review page.`);
+  more.setAttribute('aria-label', `Click to navigate to ${restaurant.name} review page. restaurant address: ${restaurant.address} ${restaurant.neighborhood}. `);
   li.append(more)
 
   return li
